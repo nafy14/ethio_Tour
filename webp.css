@@ -407,3 +407,251 @@ section {
   margin-bottom: 5px;
   backdrop-filter: blur(10px);
 }
+
+.swiper {
+  width: 90%;
+}
+.swiper-slide {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}   
+.ev-card img {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.ev-card {
+  padding: 20px;
+  border: 1px solid #f6f2e9;
+  border-radius: 5px;
+  position: relative;
+  transition: 0.3s;
+  margin-bottom: 5px;
+    background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.06)
+  );
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.ev-card p {
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: justify;
+    font-family: 'DM Serif Text', serif;
+    font-color: 
+    }
+
+.ev-card:hover {
+  background-color: #33333325;
+  box-shadow: 0 0 25px #f6f2e9;
+}
+
+.learn-more {
+  display: inline-block;
+  text-align: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0.1)
+  );
+
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 14px;
+
+  transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+
+
+#events {
+    height: auto;
+    padding: 50px 0;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0.08)
+  );
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.6),
+    inset 0 1px 2px rgba(255,255,255,0.4);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-box {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  width: 350px;
+  padding: 30px;
+  position: relative;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.auth-form {
+  display: none;
+  flex-direction: column;
+}
+
+.auth-form.active {
+  display: flex;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: black;
+}
+
+.auth-btn {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: black;
+  font-weight: bold;
+}
+
+.switch-text {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.switch-text span {
+  color: #ffcc70;
+  cursor: pointer;
+}
+/* ===== FORM VALIDATION ===== */
+.error {
+  font-size: 11px;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+  display: none;
+}
+
+input.invalid {
+  border: 2px solid #ff6b6b;
+}
+
+input.valid {
+  border: 2px solid #4cd964;
+}
+
+/* ===== BOOKING MODAL FORM ===== */
+.modal-box label {
+  font-size: 12px;
+  margin: 10px 0 5px;
+}
+
+.modal-box input,
+.modal-box select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.modal-box select {
+  cursor: pointer;
+}
+
+
+
+/* ===== DESTINATION DETAILS MODAL ===== */
+.destination-box {
+  width: 420px;
+  max-width: 95%;
+  text-align: center;
+}
+
+.dest-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.dest-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  font-weight: bold;
+  font-family: 'playfair display', serif;
+}
