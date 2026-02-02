@@ -254,3 +254,156 @@ section {
     color: black;
     box-shadow: 0 0 15px white;
 }
+
+.section-wrap {
+  width: auto;
+  margin: auto;
+ padding: 10px 0;
+ align-items: center;
+}
+
+
+.section-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.ds-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  padding: 0 20px;
+
+}
+
+.section-head h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-family: 'playfair display', serif;
+  
+}
+
+
+.ds-card img {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.ds-card {
+    overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+    background-color: rgba(255,255,255,0.1);
+    margin-bottom: 5px;
+
+  border-radius: 5px;
+    background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.06)
+  );
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.3);
+}
+.ds-card:hover {
+  background-color: #33333325;
+  box-shadow: 0 0 25px #f6f2e9;
+}
+
+.ds-crd-title {
+  margin-bottom: 10px;
+  font-family: 'playfair display', serif;
+  font-weight: bold;
+}
+
+
+.ds-card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'playfair display', serif;
+}
+
+.crd-btn {
+  font-size: 1rem;
+    font-weight: bold;
+  background-color: transparent;
+    border: 1px solid #cecdcc;
+    border-radius: 15px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.crd-btn:hover {
+  background-color: #ff835e;
+}
+
+.ds-rate {
+  background-color: #333333;
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.ds-rate i {
+  color: #fd6537;
+}
+
+.ds-btns {
+  margin-top: 2rem;
+  padding: 12px 25px;
+  font-size: 1rem; 
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #cecdcc;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.ds-btns:hover {
+  color: #fd6537;
+}
+.more {
+    display: none;
+}
+
+.more.show {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+    padding: 0 20px;
+}
+.ds-card.show {
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  border: 1px solid #f6f2e9;
+  border-radius: 5px;
+  position: relative;
+  transition: 0.3s;
+  margin-bottom: 5px;
+  backdrop-filter: blur(10px);
+}
