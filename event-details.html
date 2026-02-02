@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Details - EthioTour</title>
+    <link rel="stylesheet" href="webp.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="webp.html" class="header-logo">EthioTour</a>
+      <nav class="nav">
+        <a href="webp.html" class="nav-item">Home</a>
+        <a href="webp.html" class="nav-item">Events</a>
+      </nav>
+    </header>
+
+    <section class="event-detail-section">
+      <div class="sectionbox glass-detail">
+        <div class="detail-container">
+          <img id="event-img" src="" alt="Event Image" />
+
+          <div class="detail-info">
+            <h1 id="event-title"></h1>
+            <p id="event-date-display" class="event-tag"></p>
+            <p id="event-desc" class="description-text"></p>
+
+            <div class="booking-card">
+              <h3>Secure Your Spot</h3>
+              <p>Price: <span id="event-price"></span></p>
+              <button class="hero-btn" onclick="triggerBooking()">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="bookingModal" class="modal">
+      <div class="modal-box">
+        <span class="close-btn" onclick="closeBooking()">&times;</span>
+        <h2>Book <span id="modal-event-name"></span></h2>
+
+        <label>Event Date (Fixed)</label>
+        <input type="date" id="tourDate" readonly />
+
+        <label>Number of People</label>
+        <input
+          type="number"
+          id="peopleCount"
+          min="1"
+          value="1"
+          oninput="calculatePrice()"
+        />
+
+        <label>Guide Language</label>
+        <select id="guideLanguage" onchange="calculatePrice()">
+          <option value="english">English</option>
+          <option value="amharic">Amharic</option>
+        </select>
+
+        <div id="priceBox">Total Price: <span id="totalPrice">$0</span></div>
+        <button class="auth-btn" onclick="confirmBooking()">
+          Confirm Event Booking
+        </button>
+      </div>
+    </div>
+
+    <script src="event-details.js"></script>
+  </body>
+</html>
