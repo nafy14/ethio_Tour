@@ -87,5 +87,141 @@
         </div>
       </div>
     </section>
+
+         <section id="destination">
+    <div class="section-wrap">
+
+      <div class="section-head">
+        <h2 class="section-title">Popular Destinations</h2>
+      </div>
+
+      <div class="ds-content">
+
+        <div class="ds-card crd-1">
+          <img src="image/afar.jpg"
+     onclick="openDestination({
+       title: 'Afar Depression',
+       image: 'image/afar.jpg',
+       description: 'The Afar Depression is one of the hottest places on Earth, known for its salt flats, volcanic activity, and dramatic landscapes.',
+       price: '$300 / 1 week',
+       rating: '⭐ 4.8'
+     })">
+
+          <h3 class="ds-crd-title">Afar Depression</h3>
+          <div>
+            <p class="price">$300/1 week</p>
+            <button class="crd-btn" onclick="openBooking('Afar Depression')">Book</button>
+            
+          </div>
+          <p class="ds-rate">
+            <i class="fa-solid fa-star"></i>
+            4.8
+          </p>
+        </div>
+
+        <div class="ds-card crd-2">
+          <img src="image/lalibela.jpg"
+     onclick="openDestination({
+       title: 'Lalibela',
+       image: 'image/lalibela.jpg',
+       description: 'Lalibela is a town in northern Ethiopia known for its rock-hewn churches, built in the 12th and 13th centuries.',
+       price: '$200 / 5 days',
+       rating: '⭐ 4.8'
+     })">
+          <h3 class="ds-crd-title">Lalibela</h3>
+          <div>
+            <p class="price">$200/5 days</p>
+            <button class="crd-btn" onclick="openBooking('Lalibela')">Book</button>
+
+          </div>
+          <p class="ds-rate">
+            <i class="fa-solid fa-star"></i>
+            4.6
+          </p>
+        </div>
+
+        <div class="ds-card crd-3">
+          <img src="image/fassil.jpg"
+     onclick="openDestination({
+       title: 'Fassil',
+       image: 'image/fassil.jpg',
+       description: 'Fassil is a historical town in northern Ethiopia, known for its ancient ruins and cultural significance.',
+       price: '$200 / 5 days',
+       rating: '⭐ 4.8'
+     })">
+          <h3 class="ds-crd-title">Fassil</h3>
+          <div>
+            <p class="price">$200/5 days</p>
+            <button class="crd-btn" onclick="openBooking('Fassil')">Book</button>
+          </div>
+          <p class="ds-rate">
+            <i class="fa-solid fa-star"></i>
+            4.7
+          </p>
+        </div>
+      </div>
+
+
+          <div id="more" class="more">
+      <div class="ds-card">
+        <img src="image/A Day Trip to Simien Mountains, Ethiopia _ Very….jpg"
+     onclick="openDestination({
+       title: 'Simien Mountains',
+       image: 'image/simien.jpg',
+       description: 'The Simien Mountains are a mountain range in northern Ethiopia, known for their dramatic landscapes, endemic wildlife, and unique geological features.',
+       price: '$300 / 1 week',
+       rating: '⭐ 4.8'
+     })">
+        <h3>Simien Mountains</h3>
+        <div>
+          <span class="price">$300/1 week</span>
+          <button class="crd-btn" onclick="openBooking('Simien Mountains')">Book</button>
+
+
+        </div>
+      </div>
+
+      <div class="ds-card">
+        <img src="image/What to see in Axum, Ethiopia.jpg"
+     onclick="openDestination({
+       title: 'Axum',
+       image: 'image/axum.jpg',
+       description: 'Axum is an ancient city in northern Ethiopia, known for its historical significance, the ruins of the ancient Kingdom of Aksum, and the famous Axumite obelisks.',
+       price: '$200 / 5 days',
+       rating: '⭐ 4.8'
+     })">
+        <h3>Axum</h3>
+        <div>
+          <span class="price">$200/5 days</span>
+          <button class="crd-btn" onclick="openBooking('Axum')">Book</button>
+        </div>
+      </div>
+
+      <div class="ds-card">
+        <img src="image/Bale Mountain National Park, Ethiopia(1).jpg"
+     onclick="openDestination({
+       title: 'Bale Mountains',
+       image: 'image/bale.jpg',
+       description: 'Bale Mountains National Park is a protected area in southern Ethiopia, known for its diverse ecosystems, endemic species, and scenic beauty.',
+       price: '$300 / 1 week',
+       rating: '⭐ 4.7'
+     })">
+        <h3>Bale Mountains</h3>
+        <div>
+          <span class="price">$300/1 week</span>
+          <button class="crd-btn" onclick="openBooking('Bale Mountains')">Book</button>
+
+        </div>
+      </div>
+    </div>
+     <div class="more-btn-container">
+    <button class="ds-btns" onclick="showMore()">Show More</button>
+     </div>
+  </div>
+</section>
+
+
+
+
   </body>
 </html>
