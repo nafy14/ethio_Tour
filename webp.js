@@ -204,3 +204,182 @@ if (valid) {
   closeAuth();
 }
 }
+
+const bookingModal = document.getElementById("bookingModal");
+
+function openBooking(destination) {
+  if (!isLoggedIn) {
+    alert("Please login or register to book a tour 🔐");
+    openLogin();
+    return;
+  }
+
+  selectedDestination = destination;
+  bookingModal.classList.add("show");
+  calculatePrice();
+}
+
+
+const tourDateInput = document.getElementById("tourDate");
+
+if (tourDateInput) {
+  const today = new Date().toISOString().split("T")[0];
+  tourDateInput.setAttribute("min", today);
+}
+
+
+
+function calculatePrice() {
+  const people = Number(document.getElementById("peopleCount").value || 0);
+  const language = document.getElementById("guideLanguage").value;
+  const priceText = document.getElementById("totalPrice");
+
+  if (!selectedDestination || people === 0) {
+    priceText.textContent = "$0";
+    return;
+  }
+
+  let basePrice = destinationPrices[selectedDestination];
+  let languageExtra = 0;
+
+  switch (language) {
+    case "french":
+    case "arabic":
+      languageExtra = 10;
+      break;
+    case "italian":
+    case "german":
+      languageExtra = 15;
+      break;
+  }
+
+  const total = people * (basePrice + languageExtra);
+  priceText.textContent = `$${total}`;
+}
+
+
+function confirmBooking() {
+  const date = document.getElementById("tourDate");
+  const people = document.getElementById("peopleCount");
+  const language = document.getElementById("guideLanguage");
+
+  let valid = true;
+
+  if (!date.value) {
+    showError(date, "Select a date");
+    valid = false;
+  } else showSuccess(date);
+
+  if (!people.value || people.value < 1) {
+    showError(people, "Enter number of people");
+    valid = false;
+  } else showSuccess(people);
+
+  if (!language.value) {
+    showError(language, "Select a guide language");
+    valid = false;
+  } else showSuccess(language);
+
+  if (valid) {
+    alert(`Booking confirmed for ${selectedDestination} 🧭`);
+    closeBooking();
+  }
+}
+function closeBooking() {
+  bookingModal.classList.remove("show");
+}
+
+
+
+
+/* Close booking modal when clicking outside */
+bookingModal.addEventListener("click", e => {
+  if (e.target === bookingModal) closeBooking();
+});
+
+
+
+
+const toggleButton = document.getElementById("theme-toggle");
+const body = document.body;
+// Optional: Ensure icon reference is safe
+const icon = toggleButton && toggleButton.querySelector("i");
+
+if (toggleButton && icon) {
+  // Check Saved Theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.setAttribute("data-theme", "dark");
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  }
+
+  toggleButton.addEventListener("click", () => {
+    const isDark = body.getAttribute("data-theme") === "dark";
+
+    if (isDark) {
+      body.removeAttribute("data-theme");
+      localStorage.setItem("theme", "light");
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    } else {
+      body.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    }
+  });
+}
+
+
+function openDestination(data) {
+  const modal = document.getElementById("destinationModal");
+  document.getElementById("destImage").src = data.image;
+  document.getElementById("destTitle").textContent = data.title;
+  document.getElementById("destDescription").textContent = data.description;
+  document.getElementById("destPrice").textContent = data.price;
+  document.getElementById("destRating").textContent = data.rating;
+  
+  // Store title so the booking button inside this modal knows which place it is
+  selectedDestination = data.title; 
+  modal.classList.add("show");
+}
+
+function closeDestination() {
+  document.getElementById("destinationModal").classList.remove("show");
+}
+
+// Add this for the button inside the Destination Detail modal
+function openBookingFromDetails() {
+  closeDestination();
+  openBooking(selectedDestination);
+}
+
+
+
+
+/* --- Mobile Navigation Toggle --- */
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav");
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
+
+
+// Check for login redirect or auto-booking intent on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 1. If we came from the event page specifically to login
+    if (urlParams.get('action') === 'login' && !isLoggedIn) {
+        openLogin();
+    }
+
+    // 2. If the user JUST logged in and we have a saved redirect
+    if (isLoggedIn && sessionStorage.getItem("redirectAfterLogin")) {
+        const returnUrl = sessionStorage.getItem("redirectAfterLogin");
+        sessionStorage.removeItem("redirectAfterLogin"); // Clear it so it doesn't loop
+        window.location.href = returnUrl;
+    }
+});
