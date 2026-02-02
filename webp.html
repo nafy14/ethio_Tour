@@ -302,6 +302,121 @@
 
 </section>
 
+<div id="destinationModal" class="modal">
+  <div class="modal-box destination-box">
+
+    <span class="close-btn" onclick="closeDestination()">&times;</span>
+
+    <img id="destImage" class="dest-img" />
+
+    <h2 id="destTitle"></h2>
+
+    <p id="destDescription"></p>
+
+    <div class="dest-meta">
+      <span id="destPrice"></span>
+      <span id="destRating"></span>
+    </div>
+
+    <button class="auth-btn" onclick="openBookingFromDetails()">
+      Book This Tour
+    </button>
+
+  </div>
+</div>
+
+
+
+  
+<!-- AUTH MODAL -->
+<div id="authModal" class="modal">
+  <div class="modal-box">
+
+    <span class="close-btn" onclick="closeAuth()">&times;</span>
+
+    <div id="loginForm" class="auth-form active">
+      <h2>Login</h2>
+
+      <input type="email" id="loginEmail" placeholder="Email">
+      <small class="error"></small>
+
+      <input type="password" id="loginPassword" placeholder="Password">
+      <small class="error"></small>
+
+      <button class="auth-btn" onclick="validateLogin()">Login</button>
+
+      <p class="switch-text">
+        Don’t have an account?
+        <span onclick="switchForm('register')">Register</span>
+      </p>
+    </div>
+
+    <div id="registerForm" class="auth-form">
+      <h2>Register</h2>
+
+      <input type="text" id="regName" placeholder="Full Name">
+      <small class="error"></small>
+
+      <input type="email" id="regEmail" placeholder="Email">
+      <small class="error"></small>
+
+      <input type="password" id="regPassword" placeholder="Password">
+      <small class="error"></small>
+
+      <button class="auth-btn" onclick="validateRegister()">Create Account</button>
+
+      <p class="switch-text">
+        Already have an account?
+        <span onclick="switchForm('login')">Login</span>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+     <!-- ===== BOOKING MODAL ===== -->
+<div id="bookingModal" class="modal">
+  <div class="modal-box">
+
+    <span class="close-btn" onclick="closeBooking()">&times;</span>
+
+    <h2 style="text-align:center; margin-bottom:20px;">Book Your Tour</h2>
+
+    <label>Choose Date</label>
+    <input type="date" id="tourDate" onchange="calculatePrice()">
+
+    <small class="error"></small>
+
+    <label>Number of People</label>
+    <input type="number" id="peopleCount" min="1" max="20" oninput="calculatePrice()">
+
+    <small class="error"></small>
+
+    <label>Tour Guide Language</label>
+<select id="guideLanguage" onchange="calculatePrice()">
+  <option value="">Select language</option>
+  <option value="english">English</option>
+  <option value="amharic">Amharic</option>
+  <option value="french">French</option>
+  <option value="arabic">Arabic</option>
+  <option value="italian">Italian</option>
+  <option value="german">German</option>
+</select>
+
+<small class="error"></small>
+
+<div id="priceBox">
+  Total Price: <span id="totalPrice">$0</span>
+</div>
+
+<button class="auth-btn" onclick="confirmBooking()">Confirm Booking</button>
+
+
+  </div>
+</div>
+
 
   </body>
 </html>
