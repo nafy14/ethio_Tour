@@ -1,4 +1,4 @@
-Naf 2, [2/5/2026 8:01 PM]
+
 const eventData = {
     meskel: { 
         title: "Meskel Festival", 
@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-Naf 2, [2/5/2026 8:01 PM]
+
 function triggerBooking() {
     if (localStorage.getItem("isLoggedIn") !== "true") {
         sessionStorage.setItem("redirectAfterLogin", window.location.href);
@@ -106,7 +106,7 @@ function confirmBooking() {
         alert("Please enter at least 1 person.");
         return;
     }
-    alert("Success! You have booked ${currentEvent.title} for ${people} people".);
+    alert("Success! You have booked ${currentEvent.title} for ${people} people");
     closeBooking();
 }
 
